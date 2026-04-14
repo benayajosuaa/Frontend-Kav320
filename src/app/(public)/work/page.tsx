@@ -26,6 +26,7 @@ export default function HomePage(){
                         text={[
                             "Coming Soon",
                             "Kav-320",
+                            "Kavling-320",
                             "develop by Benaya Joshua",
                             
                         ]}
