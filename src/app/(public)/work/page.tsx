@@ -25,9 +25,9 @@ export default function HomePage(){
                     <TextType 
                         text={[
                             "Coming Soon",
-                            "Kav-320",
-                            "Kavling-320",
+                            "Kamar 320",
                             "develop by Benaya Joshua",
+                            "under of halobenaya.com",
                             
                         ]}
                         typingSpeed={75}

@@ -1,8 +1,6 @@
 "use client"
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { IBM_Plex_Serif} from "next/font/google"
 import { Questrial } from "next/font/google";
 
 const quesFont = Questrial({
@@ -10,50 +8,35 @@ const quesFont = Questrial({
   weight: "400",
 });
 
-const ibmFont = IBM_Plex_Serif({
-  subsets: ["latin"],
-  weight: "400",
-})
+
 
 
 
 export default function NavigationBar() {
-    const pathname = usePathname()
-    const menuNavbar = [
-        {name: "Work", href:"/work"},
-        {name: "Service", href:"/services"},
-        {name: "Contact", href:"/contact"},
-        {name: "ben ?", href:"/login"},
-        
-    ]
+
     
     return (
-        <div className={`bg-white ${quesFont.className} border-b`}>
+        <div className={` ${quesFont.className} bg-transparent`}>
             {/* pembagian */}
-            <div className="flex flex-row justify-between ">
-                <div className="pr-4">
+            <div className="grid grid-cols-2 items-center pt-10 pb-3 px-15">
+                {/* kiri */}
+                <div className="bg-b">
                     <Link href="/">
-                        <img 
-                            src="/logo/kav.png" 
-                            alt=""
-                            className="h-13"
-                        />
+                    <img src="/logo/kamarlogo.png" className="h-15 w-auto" />
                     </Link>
                 </div>
-                <div className="h-auto flex-row flex items-center gap-x-4 text-xl pr-8">
-                    {
-                        menuNavbar.map((e) => (
-                            <div>
-                                <Link
-                                    key={e.href}
-                                    href={e.href}
-                                    className={`${pathname === e.href ? "text-black" : "text-gray-500 hover:text-black"} transition`}
-                                >
-                                    {e.name}
-                                </Link>
-                            </div>
-                        ))
-                    }
+
+                {/* kanan */}
+                <div className="">
+                    <div className="flex justify-start">
+                        <div className="flex border border-black divide-x divide-black">
+                            <button className="p-2 w-40">
+                                <Link href="/work">Work</Link>
+                            </button>
+                            <button className="p-2 w-40">Service & Payment</button>
+                            <button className="p-2 w-40">Contact</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
