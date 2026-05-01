@@ -13,10 +13,8 @@ const quesFont = Questrial({
 
 
 export default function NavigationBar() {
-
-    
     return (
-        <div className={` ${quesFont.className} h-screen bg-transparent`}>
+        <div className={`relative isolate overflow-hidden ${quesFont.className} h-screen bg-transparent`}>
             {/* Section 1 */}
             <div>
                 {/* pembagian */}
@@ -34,7 +32,7 @@ export default function NavigationBar() {
                                 <p className="text-lg ">Phone</p>
                             </div>
                             <div className="pl-5 p-2 col-span-3 flex h-11 items-center  border-r border-b border-l border-black px-1">
-                                <p className="text-lg">+62 812 63110320</p>
+                                <p className="text-lg">+62 897 0052654</p>
                             </div>
                             <div className="flex h-11 items-center justify-center border-l  border-b border-black px-1">
                                 <p className="text-lg">Email</p>
@@ -47,7 +45,9 @@ export default function NavigationBar() {
                             <div className="bg-transparent h-11 border-0"/>
                             <div className="pl-5 p-2 col-span-3 flex h-auto items-center  border-r border-b border-l border-black px-1">
                                 <p className="text-lg">
-                                    Jl. Boulevard M.H. Thamrin 1100, <br/> Lippo Village, Kelapa Dua, <br/> Tangerang, Banten <br/>15811
+                                    Jl. Boulevard M.H. Thamrin 1100, <br/> Lippo Village, Kelapa Dua, <br/> Tangerang, Banten <br/>Indonesia  
+                                    <br/>
+                                    <span className="text-sm italic">*alamat bisa berubah kapan saja</span>
                                 </p>
                             </div>
                         </div>
