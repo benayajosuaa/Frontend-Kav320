@@ -14,7 +14,7 @@ const quesFont = Questrial({
 
 export default function NavigationBar() {
     return (
-        <div className={`relative isolate overflow-hidden ${quesFont.className} h-screen bg-transparent`}>
+        <div className={`relative isolate overflow-hidden pointer-events-none ${quesFont.className} h-screen bg-transparent`}>
             {/* Section 1 */}
             <div>
                 {/* pembagian */}
@@ -32,7 +32,7 @@ export default function NavigationBar() {
                                 <p className="text-lg ">Phone</p>
                             </div>
                             <div className="pl-5 p-2 col-span-3 flex h-11 items-center  border-r border-b border-l border-black px-1">
-                                <p className="text-lg">+62 897 0052654</p>
+                                <p className="text-lg">+62 897-0052-654</p>
                             </div>
                             <div className="flex h-11 items-center justify-center border-l  border-b border-black px-1">
                                 <p className="text-lg">Email</p>

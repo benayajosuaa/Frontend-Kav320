@@ -12,7 +12,7 @@ export default function NavigationBar() {
   return (
     <div className={`${quesFont.className} bg-transparent`}>
       {/* pembagian */}
-      <div className="grid grid-cols-2 items-start px-15 pt-9 pb-0 bg-transparent">
+      <div className="grid grid-cols-2 items-start px-15 pt-9 pb-0 ">
         {/* kiri */}
         <div className="bg-transparent">
           <Link href="/">
