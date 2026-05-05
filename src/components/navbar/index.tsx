@@ -48,15 +48,15 @@ export default function NavigationBar() {
       {/* Tampilan Mobile */}
 
       <div className="md:hidden">
-        <div className="flex flex-row justify-between items-center p-5 pt-6 bg-transparent">
+        <div className="flex flex-row justify-between items-center p-5 pt-3 pb-2 bg-white border-b">
           {/* Logo */}
           <div>
             <img className="h-11 w-auto" src="/logo/kamarlogo.png" alt="logo" />
           </div>
 
           {/* Hamburger Menu */}
-          <div className="text-lg cursor-pointer border border-black pl-10 pr-10 p-1">
-            <h1>menu</h1>
+          <div className="text-2xl cursor-pointer">
+            <RxHamburgerMenu />
           </div>
         </div>
       </div>

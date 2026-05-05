@@ -61,7 +61,7 @@ export default function NavigationBar() {
                     {/* Section 2*/}
                     <div className="absolute bottom-0 bg-transparent p-15">
                         <div>
-                            <h1 className="text-8xl">Kecakapan pelayanan profesional dan responsif</h1>
+                            <h1 className="text-5xl lg:text-6xl xl:text-7xl">Kecakapan pelayanan profesional dan responsif</h1>
                         </div>
                         <div className="pt-10">
                             <h4 className="text-xl">
@@ -78,11 +78,18 @@ export default function NavigationBar() {
             <div className="md:hidden">
                 <div className="p-5">
                     <div className="flex flex-col gap-y-3">
+                        <div className="border border-gray-200"/>
+                        {/* Logo Pintu */}
+                        <div>
+                            <div className="h-20 w-30 bg-amber-200">
+
+                            </div>
+                        </div>
                         <div>
                             <h1 className="text-3xl">Kecakapan pelayanan profesional dan responsif</h1>
                         </div>
 
-                        <div className="pb-6">
+                        <div className="pt-5 pb-10">
                             <div className="">
                                 <div className="grid grid-cols-4 gap-0 divide-y divide-black ">
                                     
@@ -113,17 +120,15 @@ export default function NavigationBar() {
                         </div>
 
                         <div className="pb-10">
-                            <div className="flex items-center justify-center">
+                            <div className="flex items-center justify-center text-center">
                                 <h4 className="text-sm">
                                     <span>2026 © kamar320  - </span>
-                                    <span>develop by Benaya Joshua, part of </span>
-                                    <span className="font-underline">halobenaya.com</span>
+                                    <span>develop by Benaya Joshua </span>
+                                    <span>part of </span>
+                                    <span className="underline">halobenaya.com</span>
                                 </h4>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

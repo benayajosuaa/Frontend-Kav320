@@ -22,7 +22,7 @@ export default function HomePage() {
   return (
     <div className={`${quesFont.className} bg-transparent`}>
         {/* SECTION: NAVBAR */}
-        <div className="fixed inset-x-0 top-0 z-30">
+        <div className="fixed z-30 w-full">
             <Navbar />
         </div>
 
@@ -49,20 +49,13 @@ export default function HomePage() {
             </div>
         </div>
 
-        {/* Tech Use */}
-        <div>
-            <div className="p-25">
-                
-            </div>
-        </div>
-
         {/* SECTION: KEBERLANJUTAN */}
-        <div className="bg-green-50">
-            <div className="min-h-screen">
-                <div className="p-25">
+        <div className="">
+            <div className="">
+                <div className="pb-25 pl-25 pr-25 pt-15">
                     {/* Judul */}
                     <div>
-                        <h1 className="text-6xl">Keberlanjutan Kami</h1>
+                        <h1 className="text-6xl">Tentang Kamar 320</h1>
                         <div className="flex pt-10">
                             <p className="text-3xl">
                                 kamar 320 bukanlah suatu projek yang bersifat temporal <br/>
@@ -76,7 +69,9 @@ export default function HomePage() {
         </div>
 
         {/* SECTION: FOOTER */}
-        <Footer />
+        <div className="">
+            <Footer />
+        </div>
     </div>
   )
 }

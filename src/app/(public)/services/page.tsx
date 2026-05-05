@@ -15,7 +15,7 @@ const quesFont = Questrial({
 export default function HomePage(){
     return (
         <div className={`${quesFont.className} bg-transparent`}>
-            <div className="fixed z-10 w-full bg-linear-to-b from-white/50 to-white/70 backdrop-blur-md">
+            <div className="fixed z-30 w-full bg-transparent">
                 <Navbar/>
             </div>
             <div className="">
