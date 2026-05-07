@@ -33,10 +33,10 @@ export default function HomePage(){
                 <div className="w-full bg-amber-50">
 
                     
-                    <div className="relative w-full overflow-hidden p-10 pt-30">
+                    <div className="relative w-full overflow-hidden pt-20 p-3 md:p-10 md:pt-30">
                         {/* Loker Content */}
                         <div className="relative z-20">
-                            <div className="grid grid-cols-2 auto-rows-[140px] gap-2 md:auto-rows-[165px] lg:grid-cols-4 2xl:grid-cols-5">
+                            <div className="grid grid-cols-2 auto-rows-[140px] gap-1 md:auto-rows-[165px] lg:grid-cols-4 2xl:grid-cols-5">
                                 <div className="col-span-2 row-span-4 md:row-span-3 lg:row-span-2 border-slate-400 border-4 bg-gray-100 p-4 md:p-5">
                                     <div className="flex h-full flex-col justify-between gap-y-6 md:gap-y-10">
                                         {/* row 1 */}
@@ -50,7 +50,7 @@ export default function HomePage(){
                                                                     text={[
                                                                         "Loker Kamar 320",
                                                                         "Cari Loker Mu",
-                                                                        "Temukan Pesan di Loker Mu",
+                                                                        "Temukan Pesanmu",
                                                                         "kamar320.com"
                                                                     ]}
                                                                     typingSpeed={75}
