@@ -1,5 +1,6 @@
 "use client"
 import { Questrial } from "next/font/google";
+import Link from "next/link";
 
 const quesFont = Questrial({
   subsets: ["latin"],
@@ -135,12 +136,20 @@ export default function LoginPage(){
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center justify-start md:basis-2/10 md:justify-end xl:justify-center">
+                                        <div className="flex items-center justify-end md:basis-2/10 md:justify-end xl:justify-center">
                                             <button className="rounded-lg border border-black bg-[#dadada] px-8 py-2 text-lg sm:text-xl ">
                                                 Daftar
                                             </button>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="w-full text-center">
+                                    <span>sudah punya akun ? langsung saja masuk dengan </span>
+                                    <span className="underline">
+                                        <Link href="/login">
+                                        klik disini
+                                        </Link>
+                                    </span>
                                 </div>
                             </div>
                         </div>
