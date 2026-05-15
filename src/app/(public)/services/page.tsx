@@ -1,6 +1,5 @@
 import Navbar from "../../../components/navbar"
 import Footer from "../../../components/footer"
-import TextType from "../../../decoration/comingsoon/index"
 import { Questrial } from "next/font/google";
 
 
@@ -9,6 +8,28 @@ const quesFont = Questrial({
   weight: "400",
 });
 
+const services = [
+    { 
+        number: "01.",
+        title: "Ngobrol & Menyusun Rencana",
+        description:"Kami memulai dengan memahami kebutuhan, tujuan, serta gambaran besar dari proyek yang ingin dikembangkan. Dari sini, ide mulai disusun menjadi rencana yang lebih terarah dan realistis.",
+    },
+    {
+        number: "02.",
+        title: "Mulai Proses Pengembangan",
+        description:"Setelah konsep dan arah proyek disepakati, proses pengerjaan dimulai secara bertahap. Mulai dari desain, pengembangan sistem, hingga implementasi fitur dilakukan dengan fokus pada kualitas dan kenyamanan pengguna.",
+    },
+    {
+        number: "03.",
+        title: "Cek, Evaluasi, & Penyempurnaan",
+        description:"Sebelum sistem digunakan sepenuhnya, seluruh bagian akan diperiksa dan diuji terlebih dahulu. Tahap ini membantu memastikan semuanya berjalan stabil, rapi, dan sesuai dengan kebutuhan.",
+    },
+    {
+        number: "04.",
+        title: "Tetap Didampingi Setelah Rilis",
+        description:"Proyek selesai bukan berarti komunikasi berhenti. Kami tetap menyediakan dukungan, maintenance, dan pengembangan lanjutan agar sistem dapat terus berkembang seiring waktu.",
+    },
+]
 
 
 
@@ -18,109 +39,62 @@ export default function HomePage(){
             <div className="fixed z-30 w-full bg-transparent">
                 <Navbar/>
             </div>
-            <div className="">
-                <div className="p-15">
+            <div>
+                <div className="px-4 py-12 sm:px-6 sm:py-14 md:px-10 md:py-15 lg:p-15">
+                    {/* SECTION 1 */}
                     <div>
-                        <div className="pt-20 pb-10">
-                            <h1 className="text-5xl">Pelayanan Kami</h1>
+                        <div className="pt-24 pb-5 sm:pt-28 sm:pb-6 md:pt-30 md:pb-8 lg:pt-20 lg:pb-8">
+                            <h1 className="text-3xl font-bold text-[#5F2E6D] sm:text-4xl md:text-[2.7rem] lg:text-5xl">Pelayanan Kami</h1>
                         </div>
                     </div>
+                    
+                    {/* SECTION 2 */}
                     <div>
-                        <div className="grid grid-cols-3 grid-rows-2 gap-10">
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-amber-50">
-                                <div className="flex flex-col gap-5 h-full justify-between ">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/laptop.png" alt="icon" />
+                       <div className="max-w-4xl text-lg leading-relaxed sm:text-2xl md:text-[1.7rem] lg:text-3xl">
+                            <p>
+                                Dari obrolan awal sampai sistem berjalan
+                                <br className="hidden sm:block"/>
+                                <span className="sm:hidden"> </span>
+                                semua proses dirancang agar jelas, terarah, dan nyaman dijalani bersama.
+                            </p>
+                       </div>
+                    </div>
+
+                    {/* SECTION 3 */}
+                    <div className="pt-10 sm:pt-12 md:pt-14 lg:pt-15">
+                        <div className="flex flex-col gap-y-6 sm:gap-y-8 md:gap-y-9 lg:gap-y-10">
+                            {
+                                services.map((x)=>(
+                                    <div
+                                        key={x.number}
+                                        className="border-b border-neutral-300 pb-6 sm:pb-7 md:pb-8 lg:flex lg:flex-row lg:pb-8"
+                                    >
+                                        <div className="flex flex-col gap-y-4 sm:gap-y-5 md:gap-y-6 lg:flex-row">
+                                            <div className="flex lg:basis-2/6">
+                                                <h1 className="font-semiboldbold text-4xl text-[#5F2E6D] sm:text-5xl md:text-[3.4rem] lg:text-6xl">
+                                                    {x.number}
+                                                </h1>
+                                            </div>
+                                            <div className="flex flex-col gap-y-3 sm:gap-y-4 md:gap-y-5 lg:basis-4/6 lg:gap-y-6">
+                                                <div>
+                                                    <h1 className="text-2xl leading-tight sm:text-3xl md:text-[2rem] lg:text-4xl">
+                                                        {x.title}
+                                                    </h1>
+                                                </div>
+                                                <div>
+                                                    <p className="text-base leading-relaxed text-neutral-800 sm:text-lg md:text-xl lg:text-2xl">
+                                                        {x.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Digital Experience Development</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-red-50">
-                                <div className="flex flex-col gap-5 h-full justify-between">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/pena.png" alt="icon" />
-                                    </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Interface & Experience Design</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-green-50">
-                                <div className="flex flex-col gap-5 h-full justify-between">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/present.png" alt="icon" />
-                                    </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Visual Presentation Crafting</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-blue-50">
-                                <div className="flex flex-col gap-5 h-full justify-between">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/house.png" alt="icon" />
-                                    </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Brand Visual Direction</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-purple-50">
-                                <div className="flex flex-col gap-5 h-full justify-between">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/find.png" alt="icon" />
-                                    </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Conversion-Focused Page Design</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 border border-black rounded-3xl p-10 relative bg-gray-50">
-                                <div className="flex flex-col gap-5 h-full justify-between">
-                                    {/* Gambar */}
-                                    <div className="flex items-start justify-start">
-                                        <img className="object-cover h-30 w-auto" src="iconservice/more.png" alt="icon" />
-                                    </div>
-                                    {/* Text */}
-                                    <div className="text-3xl">
-                                        <h1>Dan Lainnya . . . </h1>
-                                    </div>
-                                </div>
-                            </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
-                
-                {/* <div className="flex min-h-screen items-center justify-center text-3xl" >
-                    <TextType 
-                        text={[
-                            "Coming Soon",
-                            "Kamar 320",
-                            "develop by Benaya Joshua",
-                            "under of halobenaya.com",
-                                
-                        ]}
-                        typingSpeed={75}
-                        pauseDuration={1500}
-                        showCursor
-                        cursorCharacter="|"
-                        deletingSpeed={50}
-                        variableSpeed={{ min: 60, max: 120 }}
-                        cursorBlinkDuration={0.5}
-                    />
-                </div>     */}
+      
             </div>
             <div className="relative z-20">
                 <Footer/>
