@@ -1,7 +1,10 @@
+"use client"
 import Link from "next/link";
 import Navbar from "../../../components/navbar"
 import Footer from "../../../components/footer"
 import { Questrial } from "next/font/google";
+import { useState, useRef } from "react";
+import { useEffect } from "react";
 
 
 const quesFont = Questrial({
@@ -13,10 +16,34 @@ const quesFont = Questrial({
 
 
 export default function HomePage(){
+
+    const [navbarTheme, setNavbarTheme] = useState<"light" | "dark">("light");
+    const darkSectionRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+    const handleScroll = () => {
+        const rect = darkSectionRef.current?.getBoundingClientRect();
+        if (!rect) return;
+
+        const isDark = rect.top <= 120 && rect.bottom >= 120;
+        setNavbarTheme(isDark ? "dark" : "light");
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("resize", handleScroll);
+    };
+    }, []);
+
+
     return (
         <div className={`${quesFont.className} bg-transparent`}>
             <div className="fixed z-30 w-full bg-transparent">
-                <Navbar/>
+                <Navbar theme={navbarTheme} />
             </div>
             <div>
                 <div className="px-4 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-15 lg:py-15">
@@ -150,7 +177,7 @@ export default function HomePage(){
                     
                 </div>
             </div>
-            <div className="relative z-20">
+            <div ref={darkSectionRef} className="relative z-20">
                 <Footer/>
             </div>
         </div>
