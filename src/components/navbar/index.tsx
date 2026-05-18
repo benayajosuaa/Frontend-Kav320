@@ -1,8 +1,11 @@
 "use client";
-
 import Link from "next/link";
 import { Questrial } from "next/font/google";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
+import { MdArrowOutward } from "react-icons/md";
+
 
 const quesFont = Questrial({
   subsets: ["latin"],
@@ -22,6 +25,8 @@ type NavigationBarProps = {
 };
 
 export default function NavigationBar({theme = "light",}: NavigationBarProps) {
+  const [isMenuOpen, setIsOpen] = useState(false)
+
   const isDark = theme === "dark";
 
   const desktopLogo = isDark
@@ -30,7 +35,7 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
 
   const mobileLogo = isDark
     ? "/logo/kamar320-putih.png"
-    : "/logo/kamarlogo.png";
+    : "/logo/kamar320.png";
 
   const textColorClass = isDark ? "text-white" : "text-[#1A1A1A]";
   const borderColorClass = isDark ? "border-white" : "border-[#5F2E6D]";
@@ -39,8 +44,12 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
     : "bg-white/65";
   const blurClass = isDark ? "" : "backdrop-blur-md";
   const mobileSurfaceClass = isDark
-    ? "bg-black/30 border-white/20"
+    ? ""
     : "bg-white/85 border-black/10";
+  const mobileIconColorClass = isDark ? "text-white" : "text-[#5F2E6D]";
+  const mobileMenuPanelClass = isDark
+    ? "border-white/20 bg-[#5F2E6D] text-white"
+    : "border-[#592f63] bg-white text-[#5F2E6D]";
 
   const navItemClass = [
     "flex h-11 items-center justify-center px-1 text-lg",
@@ -97,12 +106,14 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
           </div>
         </div>
       </div>
+      
 
+      {/* Mobile */}
       <div className="md:hidden">
         <div
           className={[
-            "flex items-center justify-between px-5 pt-3 pb-2",
-            "border-b transition-all duration-500 ease-out",
+            "flex items-center justify-between px-5 pt-7 pb-2",
+            "transition-all duration-500 ease-out",
             blurClass,
             mobileSurfaceClass,
           ].join(" ")}
@@ -111,20 +122,47 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
             <img
               src={mobileLogo}
               alt="Kamar320 Logo"
-              className="h-11 w-auto transition-all duration-500 ease-out"
+              className="h-7 w-auto transition-all duration-500 ease-out"
             />
           </Link>
 
           <button
-            type="button"
-            aria-label="Open navigation menu"
-            className={[
-              "cursor-pointer text-2xl transition-all duration-500 ease-out",
-              textColorClass,
-            ].join(" ")}
+            onClick={() => setIsOpen(!isMenuOpen)}
           >
-            <RxHamburgerMenu />
+            <span className={`text-2xl ${mobileIconColorClass}`}>
+              {isMenuOpen ? <RxCross1 /> : <RxHamburgerMenu />}
+            </span>
           </button>
+        </div>
+
+        <div
+          className={`
+            overflow-hidden
+            transition-all duration-300
+            ${isMenuOpen ? "max-h-screen" : "max-h-0 "}
+            
+          `}
+        >
+          <div className={`flex h-screen flex-col gap-2  pt-4 pl-5 pr-5 ${mobileMenuPanelClass}`}>
+            {
+              navItems.map((items) => (
+                <Link
+                  key={items.href}
+                  href={items.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <div className="flex flex-row items-center justify-between">
+                    <span className="text-2xl">
+                      {items.label}
+                    </span>
+                    <span className="text-2xl">
+                      <MdArrowOutward />
+                    </span>
+                  </div>
+                </Link>
+              ))
+            }
+          </div>
         </div>
       </div>
     </header>
