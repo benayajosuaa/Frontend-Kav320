@@ -139,7 +139,7 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
           className={`
             overflow-hidden
             transition-all duration-300
-            ${isMenuOpen ? "max-h-screen" : "max-h-0 "}
+            ${isMenuOpen ? "max-h-screen" : "max-h-0"}
             
           `}
         >
