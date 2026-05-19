@@ -92,7 +92,7 @@ export default function HomePage() {
             </div>
 
             {/* SECTION: 2 */}
-            <div className="bg-white py-16 sm:py-20 md:py-24 lg:pt-30 lg:pb-30">
+            <div className="bg-white py-20 sm:pt-27 md:py-24 lg:pt-30 lg:pb-30">
                 <div className="px-4 sm:px-6 md:px-10 lg:p-15">
                     <div className="flex flex-col">
                         <div className="pb-5 sm:pb-6">
@@ -100,12 +100,12 @@ export default function HomePage() {
                         </div>
                         {/* Tabsnya */}
                         <div>
-                            <div className="mb-8 flex gap-6 overflow-x-auto border-b pb-2 text-sm whitespace-nowrap sm:mb-10 sm:gap-10 sm:text-base md:text-lg lg:gap-15">
+                            <div className="mb-8 flex gap-6 overflow-x-auto border-b  text-sm whitespace-nowrap sm:mb-10 sm:gap-10 sm:text-base md:text-lg lg:gap-15">
                                 <button
                                     onClick={() => setActiveTab("dalam pengerjaan")}
                                     className={`shrink-0 pb-2 transition-all ${
                                     activeTab === "dalam pengerjaan"
-                                        ? "border-b-2 border-[#5F2E6D] text-black"
+                                        ? "border-b-3 border-[#5F2E6D] text-black"
                                         : "text-gray-500"
                                     }`}
                                 >
@@ -115,7 +115,7 @@ export default function HomePage() {
                                     onClick={() => setActiveTab("project mendatang")}
                                     className={`shrink-0 pb-2 transition-all ${
                                     activeTab === "project mendatang"
-                                        ? "border-b-2 border-[#5F2E6D]  text-black"
+                                        ? "border-b-3 border-[#5F2E6D]  text-black"
                                         : "text-gray-500"
                                     }`}
                                 >
@@ -125,7 +125,7 @@ export default function HomePage() {
                                     onClick={() => setActiveTab("selesai")}
                                     className={`shrink-0 pb-2 transition-all ${
                                     activeTab === "selesai"
-                                        ? "border-b-2 border-[#5F2E6D]  text-black"
+                                        ? "border-b-3 border-[#5F2E6D]  text-black"
                                         : "text-gray-500"
                                     }`}
                                 >
