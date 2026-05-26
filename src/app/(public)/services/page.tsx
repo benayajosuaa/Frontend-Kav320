@@ -70,11 +70,24 @@ export default function HomePage(){
                     {/* SECTION 1 */}
                     <div>
                         <div className="pt-24 pb-5 sm:pt-28 sm:pb-6 md:pt-30 md:pb-8 lg:pt-20 lg:pb-8">
-                            <h1 className="text-3xl font-bold text-[#5F2E6D] sm:text-4xl md:text-[2.7rem] lg:text-4xl">Pelayanan Kami</h1>
+                            <h1 className="text-3xl font-bold text-[#5F2E6D] sm:text-4xl md:text-[2.7rem] lg:text-4xl">
+                                pelayanan dari kamar320
+                            </h1>
                         </div>
                     </div>
+
+                    {/* SECTION 2b */}
+                    <div>
+                       <div className="flex pb-10 flex-row gap-x-4 max-w-4xl text-lg leading-relaxed sm:text-xl md:text-[1.7rem] lg:text-2xl">
+                            <span>Website</span>
+                            <span className="text-[#cecece] font-semibold">|</span>
+                            <span>Design</span>
+                            <span className="text-[#cecece] font-semibold">|</span>
+                            <span>Presentation</span>
+                       </div>
+                    </div>
                     
-                    {/* SECTION 2 */}
+                    {/* SECTION 2b */}
                     <div>
                        <div className="max-w-4xl text-lg leading-relaxed sm:text-xl md:text-[1.7rem] lg:text-2xl">
                             <p>
