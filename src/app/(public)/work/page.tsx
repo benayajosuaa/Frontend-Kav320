@@ -93,7 +93,7 @@ export default function HomePage(){
                             {
                                 listWork.map((x) => {
                                     return (
-                                        <div className="flex flex-col gap-y-7">
+                                        <div key={x.index} className="flex flex-col gap-y-7">
                                             <div>
                                                 <div className="flex flex-row">
                                                     <div className="flex basis-4/10">
@@ -105,7 +105,7 @@ export default function HomePage(){
                                                         </div>
                                                     </div>
                                                     <div className="flex basis-6/10">
-                                                        <div key={x.index} className="flex flex-col justify-between">
+                                                        <div className="flex flex-col justify-between">
                                                             <div>
                                                                 <h1 className="text-2xl font-semibold">
                                                                     {x.title}
