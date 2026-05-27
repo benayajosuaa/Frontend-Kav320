@@ -19,6 +19,11 @@ const sosialMedia = [
     { href: "https://instagram.com/benayajosuaa", label: "Instagram"}, 
 ]
 
+const gerbangFooter = [
+    { index:"1", href: "/under-development", label:"masuk ke kamar"},
+    { index:"2",href: "/under-development", label:"jadilah bagian kamar320"},
+]
+
 export default function NavigationBar() {
     return (
         <div className={`${quesFont.className} relative`} data-navbar-theme="dark">
@@ -49,7 +54,7 @@ export default function NavigationBar() {
                                     </div>
                                     <div className="pl-5 p-2  col-span-3 flex h-11 items-center  border-r  border-l border-[#ffffff] px-1">
                                         <p className="text-lg">
-                                            contact@kamar320.com
+                                            info.kamar320@gmail.com
                                         </p>
                                     </div>
                                     <div className="bg-transparent h-11 border-0"/>
@@ -67,6 +72,22 @@ export default function NavigationBar() {
                     
                     {/* Section 2*/}
                     <div className="absolute bottom-0 bg-transparent p-15">
+                        <div className="flex flex-row gap-x-5 pb-2 pointer-events-auto">
+                            {
+                                gerbangFooter.map((x) => {
+                                    return (
+                                        <Link
+                                            key={x.index}
+                                            href={x.href}
+                                            className="flex flex-row text-xl text-[#8f8f8f]"
+                                        >
+                                            {x.label}  |
+                                        </Link>
+                                        
+                                    )
+                                })
+                            }
+                        </div>
                         <div>
                             <h1 className="text-5xl lg:text-6xl xl:text-7xl">Kecakapan pelayanan profesional dan responsif</h1>
                         </div>
