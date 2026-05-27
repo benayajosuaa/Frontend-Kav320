@@ -10,9 +10,10 @@ const quesFont = Questrial({
 })
 
 const loader_words = [
-  "Menyiapkan pengalaman terbaik dari Kamar320...",
-  "Memastikan semuanya siap sebelum kamu masuk...",
-  "Hampir selesai...",
+  "8 Jam Kuliah...",
+  "8 Jam Belajar...",
+  "2 Jam Drakor...",
+  "6 Jam Tidur...",
   "Silahkan masuk",
 ]
 

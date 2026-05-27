@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Questrial } from "next/font/google";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { MdArrowOutward } from "react-icons/md";
 
@@ -26,6 +26,11 @@ type NavigationBarProps = {
 
 export default function NavigationBar({theme = "light",}: NavigationBarProps) {
   const [isMenuOpen, setIsOpen] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const isDark = theme === "dark";
 
@@ -39,12 +44,12 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
 
   const textColorClass = isDark ? "text-white" : "text-[#1A1A1A]";
   const borderColorClass = isDark ? "border-white" : "border-[#5F2E6D]";
-  const glassBackgroundClass = isDark
+  const glassBackgroundClass = !isHydrated || isDark
     ? "bg-transparent"
     : "bg-white/65";
-  const blurClass = isDark ? "" : "backdrop-blur-md";
-  const mobileSurfaceClass = isDark
-    ? ""
+  const blurClass = !isHydrated || isDark ? "" : "backdrop-blur-md";
+  const mobileSurfaceClass = !isHydrated || isDark
+    ? "bg-transparent"
     : "bg-white/85 border-black/10";
   const mobileIconColorClass = isDark ? "text-white" : "text-[#5F2E6D]";
   const mobileMenuPanelClass = isDark
@@ -65,7 +70,7 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
       className={[
         quesFont.className,
         "fixed top-0 left-0 z-50 w-full",
-        "transition-all duration-100 ease-out",
+        "bg-transparent transition-all duration-100 ease-out",
       ].join(" ")}
     >
       <div className="hidden md:block">
