@@ -12,6 +12,12 @@ const quesFont = Questrial({
   weight: "400",
 });
 
+const hyperlinkContact = [
+    {index:1, href:"https://wa.me/628970052654?text=Hai!%20Tertarik%20ingin%20bekerja%20sama%20di%20Kamar320", label:"Whatsapp"},
+    {index:2, href:"https://instagram.com/benayajosuaa", label:"Instagram"},
+    {index:3, href:"https://https://www.upwork.com/freelancers/~01df8530f02c3e2b73?mp_source=share.com/benayajosuaa", label:"Upwork"},
+    {index:4, href:"https://www.freelancer.co.id/u/benayajosua?frm=benayajosua&sb=t", label:"Freelancer"},
+]
 
 
 
@@ -49,23 +55,38 @@ export default function HomePage(){
                 <div className="px-4 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-15 lg:py-15">
                     <div className="flex flex-col gap-y-5 sm:gap-y-8 lg:gap-y-10">
                         {/* SECTION JUDUL */}
-                        <div className="pt-10 pb-1 sm:pt-20 sm:pb-2">
-                            <h1 className="text-5xl font-bold text-[#5F2E6D] sm:text-5xl">Relasi</h1>
+                        <div>
+                            <div className="pt-12 pb-5 sm:pt-12 sm:pb-6 md:pt-30 md:pb-5 lg:pt-20 lg:pb-6">
+                                <h1 className="text-3xl font-bold text-[#5F2E6D] sm:text-4xl md:text-[2.7rem] lg:text-4xl">relasi kamar320</h1>
+                            </div>
                         </div>
                         
                         {/* SECTION NAVBAR */}
                         <div className="flex flex-wrap gap-x-2 gap-y-1 pb-2 text-base sm:gap-x-4 sm:gap-y-2 sm:pb-6 sm:text-xl md:text-2xl lg:pb-8">
-                            <div className="font-medium">
-                                <Link href="/laci">
-                                    Laci
-                                </Link>
+                            {
+                                hyperlinkContact.map((x) => {
+                                    return (
+                                        <Link
+                                            key={x.index}
+                                            href={x.href}
+                                            target="blank"
+                                            className="flex flex-row items-center justify-center gap-x-2"
+                                        >
+                                            <span>
+                                                {x.label} 
+                                            </span>
+                                            <span className="text-[#c0c0c0] font-semibold">|</span>
+                                        </Link>
+                                    )
+                                })
+                            }
+                        </div>
+
+                        {/* section informasi */}
+                        <div className="flex justify-start">
+                            <div className="inline-flex max-w-full bg-amber-200 px-3 py-2 text-[10px] leading-snug text-[#4B4B4B] sm:px-4 sm:text-xs md:text-sm">
+                                <h1>untuk saat ini proses komunikasi hanya bisa di akses melalui whatsapp dan Instagram</h1>
                             </div>
-                            <div className="font-light text-[#868686]">/</div>
-                            <div className="font-medium">Whatsapp</div>
-                            <div className="font-light text-[#868686]">/</div>
-                            <div className="font-medium">Instagram</div>
-                            <div className="font-light text-[#868686]">/</div>
-                            <div className="font-medium">Facebook</div>
                         </div>
 
                         {/* FORM CONTACT */}
