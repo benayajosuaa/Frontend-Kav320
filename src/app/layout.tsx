@@ -21,7 +21,14 @@ export const metadata: Metadata = {
   title: "Kamar 320",
   description: "Creative digital space from Kamar320",
   icons: {
-    icon: "/logo/webicon.png",
+    icon: [
+      {
+        url: "/logo/webicon.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/logo/webicon.png",
+    apple: "/logo/webicon.png",
   },
 };
 
