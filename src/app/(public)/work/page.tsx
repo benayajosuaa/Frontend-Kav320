@@ -17,16 +17,16 @@ const listWork = [
         index:1,
         title:"Photoscape",
         gambar:"work/photoscape.png",
-        link_demo:"https://instagram.com/benayajosuaa",
-        magazine:"https://instagram.com/benayajosuaa",
+        link_demo:"https://photoscape-frontend.vercel.app/",
+        magazine:"/under-development",
         type:"Website"
     },
     {
         index:2,
         title:"Personal Portfolio",
         gambar:"work/photoscape.png",
-        link_demo:"https://instagram.com/benayajosuaa",
-        magazine:"https://instagram.com/benayajosuaa",
+        link_demo:"https://www.halobenaya.com/",
+        magazine:"/under-development",
         type:"Design"
     },
     {
@@ -34,7 +34,7 @@ const listWork = [
         title:"Vector Database for Recipe",
         gambar:"work/photoscape.png",
         link_demo:"https://instagram.com/benayajosuaa",
-        magazine:"https://instagram.com/benayajosuaa",
+        magazine:"/under-development",
         type:"Website"
     },
 ]
@@ -111,13 +111,13 @@ export default function HomePage(){
                                                                 </div>
                                                                 <span className="font-extrabold text-[#d0d0d0]"> | </span>
                                                                 <div className="text-base font-semibold underline-offset-4 hover:underline sm:text-lg">
-                                                                    <Link href={x.magazine}>
+                                                                    <Link target="blank" href={x.magazine}>
                                                                         Majalah Project
                                                                     </Link>
                                                                 </div>
                                                                 <span className="font-extrabold text-[#d0d0d0]"> | </span>
                                                                 <div className="text-base font-semibold underline-offset-4 hover:underline sm:text-lg"> 
-                                                                    <Link href={x.link_demo}>
+                                                                    <Link target="blank" href={x.link_demo}>
                                                                         Demo Project
                                                                     </Link>
                                                                 </div>
