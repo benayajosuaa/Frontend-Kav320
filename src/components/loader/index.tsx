@@ -208,7 +208,7 @@ export default function Loader({ children }: LoaderProps) {
       {showLoader && (
         <div
           className={[
-            "fixed inset-0 z-[9999] bg-[#5F2E6D] transition-all duration-700",
+            "fixed inset-0 z-9999 bg-[#5F2E6D] transition-all duration-700",
             isExit
               ? "pointer-events-none opacity-0 scale-[1.02]"
               : "opacity-100 scale-100"

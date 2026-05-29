@@ -14,9 +14,11 @@ const navigationLink = [
 ]
 
 
-const sosialMedia = [
-    { href: "/https://wa.me/628970052654", label: "Whatsapp"}, 
-    { href: "https://instagram.com/benayajosuaa", label: "Instagram"}, 
+const hyperlinkContact = [
+    {index:1, href:"https://wa.me/628970052654?text=Hai!%20Tertarik%20ingin%20bekerja%20sama%20di%20Kamar320", label:"Whatsapp"},
+    {index:2, href:"https://instagram.com/benayajosuaa", label:"Instagram"},
+    {index:3, href:"https://https://www.upwork.com/freelancers/~01df8530f02c3e2b73?mp_source=share.com/benayajosuaa", label:"Upwork"},
+    {index:4, href:"https://www.freelancer.co.id/u/benayajosua?frm=benayajosua&sb=t", label:"Freelancer"},
 ]
 
 const gerbangFooter = [
@@ -105,15 +107,19 @@ export default function NavigationBar() {
             {/* MOBILE */}
             <div className="md:hidden" data-navbar-theme="dark">
                 <div className="p-8 pt-20 bg-[#4B4B4B]">
-                   <div className="flex flex-col gap-y-6 text-white">
-                        
-                        <div>
+                   <div className="flex flex-col text-white">
+                        <div className=" pb-2">
                             <img 
-                                className="h-12 w-auto"
-                                src="logo/icon-pintu.png" alt="icon-kamar320" 
+                                className="h-7 w-auto"
+                                src="logo/tulisan-kamar.png" alt="icon-kamar320" 
                             />
                         </div>
-                        <div className="flex flex-row">
+
+                        <div className="text-sm pb-2">
+                            <p>tempat merealisasikan ide sebelum tidur</p>
+                        </div>
+
+                        <div className="flex flex-row pt-13 pb-15">
                             {/* Social Media */}
                             <div className="flex basis-1/2 flex-col">
                                 <div className="pb-2">
@@ -121,7 +127,7 @@ export default function NavigationBar() {
                                 </div>
                                 <div className="gap-y-1 flex flex-col border-l pl-2">
                                     {
-                                        sosialMedia.map((x)=> {
+                                        hyperlinkContact.map((x)=> {
                                             return (
                                                 <div key={x.href}>
                                                     <Link
@@ -159,15 +165,35 @@ export default function NavigationBar() {
                                 </div>
                             </div> 
                         </div>
+                        
+
+                        <div className="pt-2 pb-4">
+                            <div className="flex flex-row gap-x-3 pointer-events-auto">
+                                {
+                                    gerbangFooter.map((x) => {
+                                        return (
+                                            <Link
+                                                key={x.index}
+                                                href={x.href}
+                                                className="flex flex-row text-[14px] text-[#8f8f8f]"
+                                            >
+                                                {x.label} |
+                                            </Link>
+                                            
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
 
                         <div>
-                            <h1 className="text-sm pt-10">
+                            <h1 className="text-sm">
                                 Jl. Boulevard M.H. Thamrin 1100, <br/> Lippo Village, Kelapa Dua, <br/> Tangerang, Banten <br/>Indonesia 
                             </h1>
                         </div>
 
                         <div>
-                            <h4 className="text-sm text-center pt-10 pb-10">
+                            <h4 className="text-sm text-center pt-15 pb-8">
                                 <span>2026 © kamar320  - </span>
                                 <span>develop by Benaya Joshua, part of </span>
                                 <span className="font-underline">halobenaya.com</span>

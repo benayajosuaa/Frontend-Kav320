@@ -39,8 +39,8 @@ export default function NavigationBar({theme = "light",}: NavigationBarProps) {
     : "/logo/kamar320.png";
 
   const mobileLogo = isDark
-    ? "/logo/kamar320-putih.png"
-    : "/logo/kamar320.png";
+    ? "/logo/icon-putih.svg"
+    : "/logo/icon-ungu.svg";
 
   const textColorClass = isDark ? "text-white" : "text-[#1A1A1A]";
   const borderColorClass = isDark ? "border-white" : "border-[#5F2E6D]";
