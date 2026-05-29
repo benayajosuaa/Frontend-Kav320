@@ -181,9 +181,9 @@ export default function HomePage(){
                             <div>
                                 <h1 className="text-2xl sm:text-3xl">Perhatian!</h1>
                             </div>
-                            <div className="flex text-base sm:text-lg">
+                            <div className="flex text-sm sm:text-sm">
                                 <p className="w-full leading-relaxed md:max-w-[75%] lg:basis-3/5">
-                                    Kamar320 mengimbau seluruh pengunjung untuk berhati-hati terhadap segala bentuk informasi palsu, 
+                                    Kamar320 mengimbau untuk berhati-hati terhadap segala bentuk informasi palsu, 
                                     akun tiruan, maupun nomor yang mengatasnamakan pihak Kamar320. 
                                     Seluruh komunikasi resmi hanya dilakukan melalui kontak dan kanal 
                                     yang telah dicantumkan secara resmi oleh Kamar320, 
