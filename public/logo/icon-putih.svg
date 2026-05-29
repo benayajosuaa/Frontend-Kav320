@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Lapisan1">
+        <g transform="matrix(1,0,0,1,-22.5,0)">
+            <g transform="matrix(1.104401,0,0,1,-11.610674,-0.944416)">
+                <path d="M163,937L145,603L125,210C125,210 124.55,155.041 166,124C207.45,92.959 230.344,84.816 321,76C411.656,67.184 659.107,61.631 702,67C744.893,72.369 798.125,70.794 825,97C851.875,123.206 870.459,162.095 872,233C873.541,303.905 860.157,564.982 846,662C831.843,759.018 818.754,900.227 797,914C775.246,927.773 766.067,927.834 702,913C637.933,898.166 649.956,899.976 641,864C632.044,828.024 701.722,352.261 673,321C644.278,289.739 588.121,282.692 553,281C517.879,279.308 444.206,293.599 428,314C411.794,334.401 393.972,606.189 461,903" style="fill:rgb(128,128,128);fill-opacity:0;stroke:white;stroke-width:79.1px;"/>
+            </g>
+            <g transform="matrix(0.711864,0,0,0.47416,97.913965,322.921515)">
+                <path d="M255,614C255,614 279.599,601.898 314,605" style="fill:rgb(128,128,128);fill-opacity:0;stroke:white;stroke-width:137.79px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
