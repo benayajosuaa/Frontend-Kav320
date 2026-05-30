@@ -24,16 +24,16 @@ const listWork = [
     {
         index:2,
         title:"Personal Portfolio",
-        gambar:"work/photoscape.png",
+        gambar:"work/haloben.png",
         link_demo:"https://www.halobenaya.com/",
         magazine:"/under-development",
-        type:"Design"
+        type:"Website"
     },
     {
         index:3,
         title:"Vector Database for Recipe",
-        gambar:"work/photoscape.png",
-        link_demo:"https://instagram.com/benayajosuaa",
+        gambar:"work/sbd.png",
+        link_demo:"/under-development",
         magazine:"/under-development",
         type:"Website"
     },

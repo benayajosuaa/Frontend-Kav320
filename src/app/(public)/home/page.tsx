@@ -19,6 +19,78 @@ const handleAnimationComplete = () => {
 
 type KategoriPekerjaan = "dalam pengerjaan" | "project mendatang" | "selesai"
 
+type ProjectBerjalan = {
+    id: string;
+    namaProject: string;
+    ringkasanProject: string;
+    pemilikProject: string;
+    status: string;
+    dimulaiLabel: string;
+    dimulai: string;
+    estimasiLabel: string;
+    estimasi: string;
+    progressProject?: string;
+    gambarClassName: string;
+    image: string;
+};
+
+type ProjectSelesai = {
+    id: string;
+    namaProject: string;
+    tanggalSelesai: string;
+};
+
+const dalam_pengerjaan: ProjectBerjalan[] = [
+    {
+        id: "1",
+        namaProject: "FullstackKamar320",
+        ringkasanProject: "untuk memudahkan penggunaan website kamar320, maka untuk saat ini sedang dilakukan penyempurnaan website dengan menambahkan backend pada keseluruhan web ",
+        pemilikProject: "Benaya Simamora",
+        status: "dalam pengerjaan",
+        dimulaiLabel: "dimulai:",
+        dimulai: "April 30, 2026",
+        estimasiLabel: "estimasi:",
+        estimasi: "July 2026",
+        progressProject: "23 %",
+        gambarClassName: "h-56 w-full overflow-hidden rounded-sm bg-green-500 sm:h-64 md:h-72 lg:h-75 lg:w-auto",
+        image:"work/kamar320.png"
+    },
+];
+
+const project_mendatang: ProjectBerjalan[] = [
+    {
+        id: "1",
+        namaProject: "belum tau nih....",
+        ringkasanProject: "kalau kamu ada ide yang bisa diberikan untuk project selanjutnya, jangan sungkan-sungkan untuk langsung beri ide ya",
+        pemilikProject: "-",
+        status: "belum kepikiran",
+        dimulaiLabel: "rencana mulai:",
+        dimulai: "-",
+        estimasiLabel: "target:",
+        estimasi: "-",
+        gambarClassName: "h-56 w-full overflow-hidden rounded-sm bg-[#e8dff0] sm:h-64 md:h-72 lg:h-75 lg:w-auto",
+        image:"home/cs.png"
+    },
+];
+
+const project_selesai: ProjectSelesai[] = [
+    {
+        id: "1",
+        namaProject: "Photoscape - Website Management Photostudio",
+        tanggalSelesai: "April 30, 2026",
+    },
+    {
+        id: "2",
+        namaProject: "halobenaya.com - Personal Website",
+        tanggalSelesai: "September 10, 2026",
+    },
+    {
+        id: "3",
+        namaProject: "RecipeMind - Semantic Search Engine for Cooking Recipes",
+        tanggalSelesai: "Desember 4, 2025",
+    },
+];
+
 export default function HomePage() {
     const [navbarTheme, setNavbarTheme] = useState<"light" | "dark">("light");
     const heroSectionRef = useRef<HTMLDivElement>(null);
@@ -26,6 +98,7 @@ export default function HomePage() {
     const darkSectionRef = useRef<HTMLDivElement>(null);
     const footerSectionRef = useRef<HTMLDivElement>(null);
     const [activeTab, setActiveTab] = useState<KategoriPekerjaan>("dalam pengerjaan")
+    const [showHeroBlurText, setShowHeroBlurText] = useState(false)
 
     useEffect(() => {
         const isSectionActive = (section: HTMLDivElement | null) => {
@@ -58,8 +131,25 @@ export default function HomePage() {
         };
     }, []);
 
+    useEffect(() => {
+        if (document.body.dataset.loaderDone === "true") {
+            setShowHeroBlurText(true);
+            return;
+        }
+
+        const handleLoaderComplete = () => {
+            setShowHeroBlurText(true);
+        };
+
+        window.addEventListener("kamar320:loader-complete", handleLoaderComplete);
+
+        return () => {
+            window.removeEventListener("kamar320:loader-complete", handleLoaderComplete);
+        };
+    }, []);
+
     return (
-        <div className={`${quesFont.className} bg-transparent`}>
+        <div className={`${quesFont.className} bg-[#5F2E6D]`}>
             {/* SECTION: NAVBAR */}
             <div className="fixed z-30 w-full">
                 <Navbar theme={navbarTheme} />
@@ -77,14 +167,17 @@ export default function HomePage() {
                         {/* Text Content */}
                         <div className="relative z-10 flex flex-col gap-y-4 text-center text-white">
                             <div className="relative">
-                                <BlurText
-                                    text="Selamat datang di Kamar 320"
-                                    delay={300}
-                                    animateBy="words"
-                                    direction="top"
-                                    onAnimationComplete={handleAnimationComplete}
-                                    className="mb-8 text-3xl sm:text-4xl md:text-5xl"
-                                />
+                                {showHeroBlurText && (
+                                    <BlurText
+                                        key="hero-loader-ready"
+                                        text="Selamat datang di Kamar 320"
+                                        delay={300}
+                                        animateBy="words"
+                                        direction="top"
+                                        onAnimationComplete={handleAnimationComplete}
+                                        className="mb-8 text-3xl sm:text-4xl md:text-5xl"
+                                    />
+                                )}
                             </div>         
                         </div>
                     </div>
@@ -136,118 +229,138 @@ export default function HomePage() {
                         {/* dalam pengerjaan */}
                         {activeTab === "dalam pengerjaan" && (
                             <div className="flex flex-col gap-y-8">
-                                <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-stretch lg:gap-x-10">
-                                    {/* SISI KIRI - A */}
-                                    <div className="flex flex-col gap-y-4 lg:basis-6/10">
-                                        {/* judul */}
-                                        <div className="flex flex-col">
-                                            <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
-                                            <span className="text-2xl font-semibold sm:text-3xl">
-                                                CONTOH JUDUL PROJECTNYA YAITU KAMAR320
-                                            </span>
-                                        </div>
-                                        <div className="mt-auto flex flex-col gap-y-4">
-                                            {/* ringkasan */}
-                                            <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Ringkasan Project: </span>
-                                                <span className="text-sm leading-relaxed sm:text-base">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                </span>
+                                {dalam_pengerjaan.map((project) => (
+                                    <div key={project.id} className="flex flex-col gap-y-8">
+                                        <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-stretch lg:gap-x-10">
+                                            {/* SISI KIRI - A */}
+                                            <div className="flex flex-col gap-y-4 lg:basis-6/10">
+                                                {/* judul */}
+                                                <div className="flex flex-col">
+                                                    <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
+                                                    <span className="text-2xl font-semibold sm:text-3xl">
+                                                        {project.namaProject}
+                                                    </span>
+                                                </div>
+                                                <div className="mt-auto flex flex-col gap-y-4">
+                                                    {/* ringkasan */}
+                                                    <div className="flex flex-col">
+                                                        <span className="text-sm text-[#6b6b6b]">Ringkasan Project: </span>
+                                                        <span className="text-sm leading-relaxed sm:text-base">
+                                                            {project.ringkasanProject}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* SISI KANAN - B */}
+                                            <div className="flex flex-col gap-y-4 lg:basis-4/10">
+                                                {/* gambar */}
+                                                <div className={project.gambarClassName}>
+                                                    <img
+                                                        className="h-full w-full object-cover object-center"
+                                                        src={project.image}
+                                                        alt="gambar project dalam pengerjaan"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {/* SISI KANAN - B */}
-                                    <div className="flex flex-col gap-y-4 lg:basis-4/10">
-                                        {/* gambar */}
-                                        <div className="h-56 w-full rounded-xl bg-green-500 sm:h-64 md:h-72 lg:h-75 lg:w-auto">
+                                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row lg:justify-between lg:pr-30">
+                                            <div className="flex flex-col">
+                                                <span className="text-sm text-[#6b6b6b]">Pemilik Project: </span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.pemilikProject}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">status:</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.status}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">{project.dimulaiLabel}</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.dimulai}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">{project.estimasiLabel}</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.estimasi}
+                                                </span>
+                                            </div>
+                                            {project.progressProject && (
+                                                <div className="flex flex-col">
+                                                    <span className="text-[#6b6b6b] text-sm">progress project:</span>
+                                                    <span className="text-lg font-semibold sm:text-xl">
+                                                        {project.progressProject}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                </div>
-                                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row lg:justify-between lg:pr-30">
-                                    <div className="flex flex-col">
-                                        <span className="text-sm text-[#6b6b6b]">Pemilik Project: </span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            Benaya Simamora
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">status:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            dalam pengerjaan
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">dimulai:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            Januari 29, 2026
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">estimasi:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            Agustus 9, 2026
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">progress project:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            67 %
-                                        </span>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         )}
                         {/* project mendatang */}
                         {activeTab === "project mendatang" && (
                             <div className="flex flex-col gap-y-8">
-                                <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-stretch lg:gap-x-10">
-                                    <div className="flex flex-col gap-y-4 lg:basis-6/10">
-                                        <div className="flex flex-col">
-                                            <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
-                                            <span className="text-2xl font-semibold sm:text-3xl">
-                                                Project Mendatang Kamar320
-                                            </span>
+                                {project_mendatang.map((project) => (
+                                    <div key={project.id} className="flex flex-col gap-y-8">
+                                        <div className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-stretch lg:gap-x-10">
+                                            <div className="flex flex-col gap-y-4 lg:basis-6/10">
+                                                <div className="flex flex-col">
+                                                    <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
+                                                    <span className="text-2xl font-semibold sm:text-3xl">
+                                                        {project.namaProject}
+                                                    </span>
+                                                </div>
+                                                <div className="mt-auto flex flex-col gap-y-4">
+                                                    <div className="flex flex-col">
+                                                        <span className="text-sm text-[#6b6b6b]">Ringkasan Project: </span>
+                                                        <span className="text-sm leading-relaxed sm:text-base">
+                                                            {project.ringkasanProject}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col gap-y-4 lg:basis-4/10">
+                                                <div className={project.gambarClassName}>
+                                                    <img
+                                                        className="h-full w-full object-cover object-center"
+                                                        src={project.image}
+                                                        alt="gambar project mendatang"
+                                                    />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="mt-auto flex flex-col gap-y-4">
+                                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row lg:justify-between lg:pr-30">
                                             <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Ringkasan Project: </span>
-                                                <span className="text-sm leading-relaxed sm:text-base">
-                                                    Section ini khusus untuk menampilkan project yang masih dalam tahap perencanaan atau belum dimulai.
+                                                <span className="text-sm text-[#6b6b6b]">Pemilik Project: </span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.pemilikProject}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">status:</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.status}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">{project.dimulaiLabel}</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.dimulai}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[#6b6b6b] text-sm">{project.estimasiLabel}</span>
+                                                <span className="text-lg font-semibold sm:text-xl">
+                                                    {project.estimasi}
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-y-4 lg:basis-4/10">
-                                        <div className="h-56 w-full rounded-xl bg-[#e8dff0] sm:h-64 md:h-72 lg:h-75 lg:w-auto">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:flex lg:flex-row lg:justify-between lg:pr-30">
-                                    <div className="flex flex-col">
-                                        <span className="text-sm text-[#6b6b6b]">Pemilik Project: </span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            Benaya Simamora
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">status:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            project mendatang
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">rencana mulai:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            Oktober 2026
-                                        </span>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[#6b6b6b] text-sm">target:</span>
-                                        <span className="text-lg font-semibold sm:text-xl">
-                                            belum ditentukan
-                                        </span>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         )}
                         {/* project selesai */}
@@ -255,51 +368,31 @@ export default function HomePage() {
                             <div className="flex flex-col gap-y-8">
                                 <div className="flex flex-col items-stretch gap-y-8">
                                     {/* KONTEN */}
-                                    {/* contoh konten 1 */}
-                                    <div className="flex w-full flex-col gap-5 md:flex-row">
-                                        {/* Kiri */}
-                                        <div className="flex md:basis-7/10">
-                                            <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
-                                                <span className="text-2xl sm:text-3xl">
-                                                    Project Yang Sudah Selesai
-                                                </span>
+                                    {project_selesai.map((project) => (
+                                        <div key={project.id}>
+                                            <div className="flex w-full flex-col gap-5 md:flex-row">
+                                                {/* Kiri */}
+                                                <div className="flex md:basis-7/10">
+                                                    <div className="flex flex-col">
+                                                        <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
+                                                        <span className="text-2xl sm:text-3xl">
+                                                            {project.namaProject}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                {/* Kanan */}
+                                                <div className="flex md:basis-3/10 ">
+                                                    <div className="flex flex-col">
+                                                        <span className="text-sm text-[#6b6b6b]">Tanggal Selesai: </span>
+                                                        <span className="text-2xl sm:text-3xl">
+                                                            {project.tanggalSelesai}
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <div className="pt-5 border-b border-[#d3d3d3]"/>
                                         </div>
-                                        {/* Kanan */}
-                                        <div className="flex md:basis-3/10 md:justify-end">
-                                            <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Tanggal Selesai: </span>
-                                                <span className="text-2xl sm:text-3xl">
-                                                    September 10, 2026
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="border-b border-[#a7a7a7]"/>
-                                    
-                                    {/* contoh konten 2 */}
-                                    <div className="flex w-full flex-col gap-5 md:flex-row">
-                                        {/* Kiri */}
-                                        <div className="flex md:basis-7/10">
-                                            <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Nama Project: </span>
-                                                <span className="text-2xl sm:text-3xl">
-                                                    Project Yang Sudah Selesai
-                                                </span>
-                                            </div>
-                                        </div>
-                                        {/* Kanan */}
-                                        <div className="flex md:basis-3/10 md:justify-end">
-                                            <div className="flex flex-col">
-                                                <span className="text-sm text-[#6b6b6b]">Tanggal Selesai: </span>
-                                                <span className="text-2xl sm:text-3xl">
-                                                    September 10, 2026
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="border-b border-[#a7a7a7]"/>
+                                    ))}
 
                                     <div className="flex flex-col gap-y-6 pt-2 text-sm sm:pt-10 sm:text-base md:pt-15 md:text-xl">
                                         <span>
@@ -333,7 +426,7 @@ export default function HomePage() {
             {/* SECTION: ... */}
             <div ref={heroSectionRef} className="bg-[#5F2E6D]">
                 <div className="">
-                    <div className="px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-24 md:px-10 md:pb-24 md:pt-28 lg:p-15 lg:pt-35">
+                    <div className="px-4 pb-16 pt-30 sm:px-6 sm:pb-20  md:px-10 md:pb-24 md:pt-28 lg:p-15 lg:pt-35">
                         {/* Judul */}
                         <div className="flex flex-col gap-y-8 sm:gap-y-10">
                             <div>
@@ -347,7 +440,7 @@ export default function HomePage() {
                                 <div>
                                     <img
                                         className="h-auto w-full max-w-lg lg:w-130"
-                                        src="ulitity/real320.png"
+                                        src="home/fotokamar320.png"
                                         alt=""
                                     />
                                 </div>
